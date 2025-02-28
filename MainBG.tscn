@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ia8ytjhs7o3"]
+
+[ext_resource type="Texture2D" uid="uid://ci417inapv8e6" path="res://images/bg.webp" id="1_i8jsb"]
+[ext_resource type="PackedScene" uid="uid://cltiqde4le2r6" path="res://goblins/GoblinTB.tscn" id="2_btuxh"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(577, 323)
+scale = Vector2(0.642857, 0.633789)
+texture = ExtResource("1_i8jsb")
+
+[node name="GoblinTb" parent="." instance=ExtResource("2_btuxh")]
+position = Vector2(783, 494)

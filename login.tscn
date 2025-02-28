@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bq68r3ma7m7tv"]
+
+[node name="login" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 536.0
+offset_top = 110.0
+offset_right = 576.0
+offset_bottom = 133.0
+text = "login"
