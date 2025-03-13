@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3ia8ytjhs7o3"]
+
+[ext_resource type="Texture2D" uid="uid://ci417inapv8e6" path="res://images/bg.webp" id="1_i8jsb"]
+[ext_resource type="PackedScene" uid="uid://cng5nld618p61" path="res://monsters/Slime.tscn" id="3_nt66y"]
+[ext_resource type="Texture2D" uid="uid://84ito00fvch7" path="res://images/logo.png" id="3_p8qmg"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(577, 323)
+scale = Vector2(0.642857, 0.633789)
+texture = ExtResource("1_i8jsb")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(583, 151)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_p8qmg")
+
+[node name="Slime" parent="." instance=ExtResource("3_nt66y")]
+position = Vector2(736, 498)
+scale = Vector2(3, 3)
+
+[node name="Slime2" parent="." instance=ExtResource("3_nt66y")]
+position = Vector2(120, 522)
+scale = Vector2(3, 3)
