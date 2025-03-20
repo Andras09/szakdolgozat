@@ -1,28 +1,28 @@
 [gd_scene load_steps=12 format=3 uid="uid://co7qfmijr2673"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jcggp"]
-[ext_resource type="Texture2D" uid="uid://2mgxehr7h1iu" path="res://Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="2_3w4fs"]
 [ext_resource type="PackedScene" uid="uid://b3ia8ytjhs7o3" path="res://scenes/MainBG.tscn" id="2_24qeo"]
-[ext_resource type="Texture2D" uid="uid://q21rd4uqrm7x" path="res://Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides.png" id="3_qeod3"]
+[ext_resource type="Texture2D" uid="uid://l8ij7egexyob" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides.png" id="2_avhfp"]
+[ext_resource type="Texture2D" uid="uid://fnqwortw270m" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="3_c501h"]
 [ext_resource type="AudioStream" uid="uid://dkx8yyt1mse20" path="res://music/Active Suspicion_Loop.mp3" id="5_maly4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1am75"]
-texture = ExtResource("3_qeod3")
+texture = ExtResource("2_avhfp")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mad0"]
-texture = ExtResource("2_3w4fs")
+texture = ExtResource("3_c501h")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3i4l"]
-texture = ExtResource("3_qeod3")
+texture = ExtResource("2_avhfp")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcheh"]
-texture = ExtResource("3_qeod3")
+texture = ExtResource("2_avhfp")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqjs8"]
-texture = ExtResource("2_3w4fs")
+texture = ExtResource("3_c501h")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3kfuv"]
-texture = ExtResource("3_qeod3")
+texture = ExtResource("2_avhfp")
 
 [node name="Main" type="Node2D"]
 position = Vector2(592, 184)
