@@ -12,6 +12,7 @@ func spawn_enemy()->void:
 		print("No spawner cells found.")
 		return
 
+	#await get_tree().create_timer(60.0).timeout
 	# Use the last cell as the spawn point.
 	var spawn_cell = used_cells[used_cells.size() - 1]
 	var world_position = global_position + (Vector2(spawn_cell) * cell_size)
@@ -28,7 +29,8 @@ func spawn_enemy()->void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawn_enemy()
+	#spawn_enemy()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

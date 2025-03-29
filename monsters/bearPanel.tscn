@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://duqpw537ur8m3"]
+
+[ext_resource type="Script" path="res://monsters/bear_panel.gd" id="1_yuhat"]
+[ext_resource type="Texture2D" uid="uid://b6kybw45rd17i" path="res://assets/Traps/Bear_Trap.png" id="2_ivlce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2gkg"]
+atlas = ExtResource("2_ivlce")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p46fv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2gkg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Panel" type="Panel"]
+offset_right = 70.0
+offset_bottom = 70.0
+script = ExtResource("1_yuhat")
+metadata/caller = "bear"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(34, 36)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p46fv")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://d17xpmeys2boi"]
+
+[ext_resource type="Texture2D" uid="uid://dw4pgrp630nfx" path="res://assets/Traps/Fire_Trap.png" id="1_xxbu4"]
+[ext_resource type="Script" path="res://monsters/bear_panel.gd" id="1_yvi20"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrd0n"]
+atlas = ExtResource("1_xxbu4")
+region = Rect2(0, 0, 32, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3yrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrd0n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Panel" type="Panel"]
+offset_right = 70.0
+offset_bottom = 70.0
+script = ExtResource("1_yvi20")
+metadata/caller = "fire"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_s3yrj")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

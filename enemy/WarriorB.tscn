@@ -206,7 +206,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b345f")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -258,8 +258,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rypip"]
+radius = 193.373
 
 [node name="WarriorB" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_n5xsr")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
@@ -268,17 +270,18 @@ position = Vector2(-4.5, 1.5)
 shape = SubResource("RectangleShape2D_nvklq")
 
 [node name="Body" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(4, 28.5)
 shape = SubResource("RectangleShape2D_5bkuq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_voenw")
-animation = &"idle"
+animation = &"death"
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 shape = SubResource("CircleShape2D_rypip")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
