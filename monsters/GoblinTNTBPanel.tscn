@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://fcdoi2olatey"]
+
+[ext_resource type="Texture2D" uid="uid://6iihd74sdyl3" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Goblins/Troops/TNT/Blue/TNT_Blue.png" id="1_hrcmg"]
+
+[sub_resource type="GDScript" id="GDScript_ed5xe"]
+script/source = "extends Panel
+ 
+var goblin=preload(\"res://monsters/GoblinTNTB.tscn\")
+var currTile
+
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	var temp
+	temp=goblin.instantiate()
+	#left hold
+	if (Game.soul>=90):
+		if event is InputEventMouseButton and event.button_mask == 1:
+			#temp.scale = Vector2(2,2)
+			add_child(temp)
+			temp.global_position = event.global_position
+			
+		#button left down and dragging
+		elif event is InputEventMouseMotion and event.button_mask == 1:
+			if get_child_count() > 1:
+				get_child(1).global_position = event.global_position
+				#Check if on Dirt Tile.
+				var mapPath = get_tree().get_root().get_node(\"Level1/ground\")
+				var tile = mapPath.local_to_map(get_global_mouse_position())
+				currTile = mapPath.get_cell_atlas_coords(tile)
+				var targets = get_child(1).get_node(\"Area2D\").get_overlapping_bodies()
+				
+		elif event is InputEventMouseButton and event.button_mask == 0:
+			#button left release
+			if event.global_position.x >= 1152:
+				if get_child_count() > 1:
+					get_child(1).queue_free()
+			else:
+				#check for valid tile:
+				if get_child_count() > 1:
+					get_child(1).queue_free()
+				var targets = get_child(1).get_node(\"Area2D\").get_overlapping_bodies()
+				var path = get_tree().get_root().get_node(\"Level1/Goblins\")
+				
+				if (targets.size() < 2):
+					path.add_child(temp)
+					temp.global_position = event.global_position
+					#temp.scale = Vector2(2,2)
+					
+					Game.soul-=90
+		else:
+			if get_child_count() > 1:
+				get_child(1).queue_free()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oei2e"]
+atlas = ExtResource("1_hrcmg")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wuuf0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oei2e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GoblinTntbPanel" type="Panel"]
+offset_right = 70.0
+offset_bottom = 70.0
+script = SubResource("GDScript_ed5xe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(33, 32)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_wuuf0")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -1,0 +1,144 @@
+[gd_scene load_steps=19 format=3 uid="uid://b1shy1lk2rtb"]
+
+[ext_resource type="Texture2D" uid="uid://6iihd74sdyl3" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Goblins/Troops/TNT/Blue/TNT_Blue.png" id="1_hjwjm"]
+[ext_resource type="Script" path="res://monsters/goblin_tntb.gd" id="1_w70xu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i00fp"]
+radius = 38.0
+height = 83.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htimv"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0xmq"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmefd"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e35is"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(576, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m0ag"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwuva"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btp8j"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(1152, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh5tt"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52prx"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mv6c"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybfs1"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx7xy"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1w0j"]
+atlas = ExtResource("1_hjwjm")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lchem"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htimv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0xmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmefd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e35is")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m0ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwuva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btp8j")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh5tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52prx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mv6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybfs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx7xy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1w0j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_requc"]
+radius = 195.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 2
+script = ExtResource("1_w70xu")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 5.5)
+shape = SubResource("CapsuleShape2D_i00fp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lchem")
+animation = &"attack"
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_requc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="DynamiteContainer" type="Node2D" parent="."]
+
+[node name="Aim" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

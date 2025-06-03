@@ -263,6 +263,7 @@ radius = 193.373
 [node name="WarriorB" type="CharacterBody2D"]
 z_index = 2
 script = ExtResource("1_n5xsr")
+metadata/color = "blue"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
@@ -276,7 +277,9 @@ shape = SubResource("RectangleShape2D_5bkuq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_voenw")
-animation = &"death"
+animation = &"move"
+
+[node name="walking" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
@@ -284,4 +287,5 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_rypip")
 
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

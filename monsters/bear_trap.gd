@@ -19,7 +19,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if target in body.name:
 			get_node("AnimatedSprite2D").play("attack")
 			body.HEALTH-=damage
-			print(body.HEALTH)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

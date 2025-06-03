@@ -4,25 +4,31 @@
 [ext_resource type="PackedScene" uid="uid://b3ia8ytjhs7o3" path="res://scenes/MainBG.tscn" id="2_24qeo"]
 [ext_resource type="Texture2D" uid="uid://l8ij7egexyob" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides.png" id="2_avhfp"]
 [ext_resource type="Texture2D" uid="uid://fnqwortw270m" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="3_c501h"]
-[ext_resource type="AudioStream" uid="uid://dkx8yyt1mse20" path="res://music/Active Suspicion_Loop.mp3" id="5_maly4"]
+[ext_resource type="AudioStream" uid="uid://buejer2vld41r" path="res://music/Active Suspicion_Loop.mp3" id="5_maly4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1am75"]
 texture = ExtResource("2_avhfp")
+region_rect = Rect2(0, 0, 192, 49)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mad0"]
 texture = ExtResource("3_c501h")
+region_rect = Rect2(0, 0, 192, 48)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3i4l"]
 texture = ExtResource("2_avhfp")
+region_rect = Rect2(0, 0, 192, 46)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcheh"]
 texture = ExtResource("2_avhfp")
+region_rect = Rect2(0, 0, 192, 46)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqjs8"]
 texture = ExtResource("3_c501h")
+region_rect = Rect2(0, 0, 192, 49)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3kfuv"]
 texture = ExtResource("2_avhfp")
+region_rect = Rect2(0, 0, 192, 51)
 
 [node name="Main" type="Node2D"]
 position = Vector2(592, 184)
@@ -108,3 +114,4 @@ autoplay = true
 
 [connection signal="pressed" from="Button_new" to="." method="_on_button_new_pressed"]
 [connection signal="pressed" from="Button_quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="Button_load" to="." method="_on_button_load_pressed"]

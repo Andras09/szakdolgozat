@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4k0lwpr1r47b"
+path="res://.godot/imported/Darkened Whirlwind_Loop.mp3-a7b79f1422fb331a395b3cd79af30e0b.mp3str"
+
+[deps]
+
+source_file="res://music/Darkened Whirlwind_Loop.mp3"
+dest_files=["res://.godot/imported/Darkened Whirlwind_Loop.mp3-a7b79f1422fb331a395b3cd79af30e0b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
